@@ -1,27 +1,28 @@
+:- discontiguous step/3.
+:- discontiguous step/4.
+:- discontiguous rule/4.
+:- discontiguous normalize/2.
+
 % -------------------------
 % Steps (the CoT trace)
 % -------------------------
 
 step(1, given, apples_total(10)).
 step(2, given, apples_eaten(3)).
+
 step(3, inference, rule_remaining_apples, apples_remaining(7)).
+rule(rule_remaining_apples, subtraction_rule, [apples_total(_), apples_eaten(_)], apples_remaining(_)).
+normalize(apples_total(X), minuend(X)).
+normalize(apples_eaten(Y), subtrahend(Y)).
+normalize(apples_remaining(Z), difference(Z)).
 
-normalize(apples_total(T), total(T)).
-normalize(apples_eaten(E), consumed(E)).
-normalize(apples_remaining(R), remaining(R)).
+step(4, given, apples_new(8)).
 
-% -------------------------
-% Rule schemas
-% -------------------------
-
-rule_schema(subtraction_rule,
-    [total(_), consumed(_)],
-    remaining(_)).
-
-rule(rule_remaining_apples,
-     subtraction_rule,
-     [apples_total(T), apples_eaten(E)],
-     apples_remaining(R)).
+step(5, inference, rule_new_apples, apples_final(15)).
+rule(rule_new_apples, addition_rule, [apples_remaining(_), apples_new(_)], apples_final(_)).
+normalize(apples_remaining(X), addend_0(X)).
+normalize(apples_new(Y), addend_1(Y)).
+normalize(apples_final(Z), sum(Z)).
 
 % -------------------------
 % Derivability
@@ -44,12 +45,25 @@ available(Fact, Step) :-
 :- use_module(library(clpfd)).
 
 valid_schema(subtraction_rule,
-    [total(T), consumed(E)],
-    remaining(R)) :-
-    T #>= 0,
-    E #>= 0,
-    R #>= 0,
-    R #= T - E.
+    [minuend(X), subtrahend(Y)],
+    difference(Z)) :-
+    Z #= X - Y.
+
+valid_schema(addition_rule,
+    [addend_0(X), addend_1(Y)],
+    sum(Z)) :-
+    Z #= X + Y.
+
+% valid_schema(multiplication_rule,
+%     [count(N), value(V)],
+%     total(T)) :-
+%     T #= N * V.
+
+% valid_schema(average_rule,
+%     [sum(S), count(N)],
+%     average(A)) :-
+%     N #> 0,
+%     A * N #= S.
 
 % -------------------------
 % Validators
