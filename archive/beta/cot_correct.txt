@@ -1,0 +1,47 @@
+<｜begin▁of▁sentence｜>
+Joey and Chandler live together.
+Joey bought 10 apples. He came back home and ate 3 of them.
+Then Chandler came back home with 8 new apples.
+
+The same story repeated for 7 days.
+
+How many apples the two frineds have after seven days?
+<think>
+
+To determine the total number of apples Joey and Chandler have after seven days, I'll start by analyzing the events that occur each day.
+
+Every day, Joey buys 10 apples and eats 3, leaving him with 7 apples. Chandler then brings 8 new apples to their home. Combining these, they have 7 + 8 = 15 apples each day.
+
+Over the course of 7 days, this daily total accumulates. Multiplying the daily total by the number of days gives 15 apples/day * 7 days = 105 apples.
+
+Therefore, after seven days, Joey and Chandler together have 105 apples.
+</think>
+
+Let's break down the problem step by step to find out how many apples Joey and Chandler have after seven days.
+
+### **Daily Apple Consumption**
+
+1. **Joey's Apples:**
+   - **Buys:** 10 apples
+   - **Eats:** 3 apples
+   - **Remaining:** 10 - 3 = **7 apples**
+
+2. **Chandler's Apples:**
+   - **Brings:** 8 apples
+
+3. **Total Apples per Day:**
+   - Joey's remaining apples + Chandler's apples = 7 + 8 = **15 apples**
+
+### **Total Apples After 7 Days**
+
+Since the same pattern repeats for 7 days, we can calculate the total apples by multiplying the daily total by 7.
+
+\[
+\text{Total Apples} = 15 \, \text{apples/day} \times 7 \, \text{days} = 105 \, \text{apples}
+\]
+
+### **Final Answer**
+
+\[
+\boxed{105}
+\]<｜end▁of▁sentence｜>

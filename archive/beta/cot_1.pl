@@ -8,7 +8,7 @@
 % -------------------------
 
 step(1, given, apples_joey(10)).
-step(2, given, apples_joey_eaten(3)).
+step(2, given, apples_joey_eaten(4)).
 
 step(3, inference, rule_joey_eaten_apples, apples_joey_remaining(7)).
 rule(rule_joey_eaten_apples, subtraction_rule, [apples_joey(_), apples_joey_eaten(_)], apples_joey_remaining(_)).

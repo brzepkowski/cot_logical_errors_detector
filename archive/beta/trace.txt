@@ -1,0 +1,2 @@
+ERROR: Prolog initialisation failed:
+ERROR: script_file `'cot_example.pl'' does not exist
